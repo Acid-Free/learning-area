@@ -16,7 +16,25 @@
   <script>
     const link = document.querySelector("a");
     link.textContent = "Mozilla Developer Network";
-    link.href = "https://developer.mozilla.org"
+    link.href = "https://developer.mozilla.org";
+
+    const sect = document.querySelector("section");
+
+    const para = document.createElement("p");
+    para.textContent = "I like turtles.";
+
+    sect.appendChild(para);
+
+    const text = document.createTextNode(" - the best web documentation there is.");
+
+    const linkPara = document.querySelector("p");
+    linkPara.appendChild(text);
+
+
+    text.nodeValue = "yeah";
+    // Two ways to remove an element, the latter is supported by more browser versions.
+    // linkPara.remove()
+    // linkPara.parentNode.removeChild(linkPara)
   </script>
 </body>
 
