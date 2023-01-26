@@ -28,7 +28,8 @@
 
 </body>
 <script>
-  const name = 'Mustafa';
+  const input = document.querySelector("input");
+  const button = document.querySelector("button");
   const para = document.createElement('p');
 
   const phonebook = [
@@ -43,12 +44,22 @@
   ];
 
   // Add your code here
-  for (const { name: phonebookName, number } of phonebook) {
-    if (name === phonebookName) {
-      para.textContent = `${phonebookName}, ${number}`;
-      break;
+
+  button.addEventListener("click", () => {
+    para.textContent = "";
+    input.focus();
+    const name = input.value;
+
+    for (const { name: phonebookName, number } of phonebook) {
+      if (name.toLowerCase() === phonebookName.toLowerCase()) {
+        para.textContent = `${phonebookName}, ${number}`;
+        break;
+      }
     }
-  }
+
+    if (para.textContent === "")
+      para.textContent = "Nonexistent.";
+  });
   // Don't edit the code below here!
   const section = document.querySelector('section');
   section.appendChild(para);
